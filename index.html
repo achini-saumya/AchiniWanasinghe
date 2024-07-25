@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- Custom Styles -->
+    <style>
+        body {
+            background-color: #0a192f;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+        .navbar-custom {
+            background-color: #0a192f;
+        }
+        .navbar-custom .navbar-brand,
+        .navbar-custom .nav-link {
+            color: #fff;
+            
+        }
+        .navbar-custom .nav-link:hover {
+            color: #5ec1df;
+        }
+        .nav-item{
+            padding: 20px;
+        }
+        #home {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        #home h1 {
+            font-size: 4.5rem;
+            margin-bottom: 0.5rem;
+        }
+        #home p {
+            font-size: 3.5rem;
+            color: #9ea4a7;
+        }
+        #home .social-icons {
+            margin-top: 20px;
+        }
+        #home .social-icons a {
+            color: #7d73be;
+            margin: 0 10px;
+            font-size: 30px;
+            transition: color 0.3s;
+        }
+        #home .social-icons a:hover {
+            color: #b86363;
+        }
+        .social-icons a {
+            position: relative; 
+            color: #6c5eb4;
+            margin: 0 10px;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a span {
+            visibility: hidden;
+            font-size: 15px;
+            width: 80px; 
+            padding: 5px 10px;
+            background-color: #817f85d0;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            position: absolute;
+            bottom: 150%; 
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s, visibility 0s linear 0.3s;
+        }
+        
+        .social-icons a:hover span {
+            visibility: visible;
+            opacity: 1;
+            transition-delay: 0s, 0s; 
+        }
+        
+        #about,
+        #skills,
+        #contact {
+            padding: 5rem 0;
+        }
+        .about-img {
+            width: 100%;
+            height: auto;
+            
+            
+        }
+        .p1{
+            text-align: justify;
+            color: #d4cfcf;
+        }
+
+        
+        .skills .card {
+            background-color: #112240;
+            border: none;
+            transition: transform 0.3s;
+            width: 100%;
+            height: 170px;
+            box-shadow: 5px 2px 5px rgba(36, 35, 35, 0.5);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+        .skills .card:hover {
+            transform: scale(1.05);
+        }
+        .skills .card-body {
+            text-align: center;
+        }
+        .skills .card-img-top {
+            width: 100px;
+            margin-top: 20px;
+        }
+        .skills .card p {
+            color: white;
+            margin-top: auto;
+            margin-bottom: 10px;
+        }
+        .work-section .card {
+            position: relative;
+            overflow: hidden;
+            height: 250px;
+            margin-bottom: 20px;
+            background-color: #2c2070;
+        }
+        .work-section .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.3s;
+        }
+        .work-section .card .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(155, 154, 158, 0.568);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+            text-align: center;
+            padding: 20px;
+        }
+        .work-section .card:hover img {
+            opacity: 0;
+        }
+        .work-section .card:hover .overlay {
+            opacity: 1;
+        }
+        .work-section .card .overlay h2 {
+            margin-bottom: 20px;
+        }
+        .work-section .card .overlay .btn {
+            margin: 5px;
+            color: #333;
+        }
+        .work-section .card .overlay .btn:hover {
+            color: #fff;
+        }
+        .contact-form .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .contact-form .btn-primary {
+            background-color: #5ec1df;
+            border-color: #5ec1df;
+            width: 100%;
+        }
+        .contact-form .btn-primary:hover {
+            background-color: #4ab0c5;
+            border-color: #4ab0c5;
+        }
+
+       
+
+        
+        @media (max-width: 700px) {
+            .container-fluid {
+                padding-right: 0;
+                padding-left: 0;
+                max-width: 100%;
+            }
+            #home h1 {
+                font-size: 50px;
+                
+            }
+            #home p {
+                font-size: 40px;
+                
+            }
+            
+            #about,
+            #skills,
+            #work,
+            #contact {
+            margin: 20px;
+        }
+        .p1{
+            font-size: 15px;
+            margin-top: 20px;
+        }
+
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-md navbar-custom fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="Achini.png" alt="Logo" width="200">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon">
+                    <i class="fas fa-bars text-white"></i>
+                </span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#work">Work</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home">
+        <div class="container">
+            <h1>Achini Wanasinghe</h1>
+            <p>I'm a Front-End Developer</p>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/achini-wanasinghe" target="_blank"><i class="fab fa-linkedin"></i><span class="si">LinkedIn</span></a>
+                <a href="https://github.com/achini-saumya" target="_blank"><i class="fab fa-github"></i><span>GitHub</span></a>
+                <a href="mailto:achinisaumya89@gmail.com"><i class="fas fa-envelope"></i><span>Email</span></a>
+                <a href="Resume.pdf" target="_blank"><i class="fas fa-file-alt"></i><span>Resume</span></a>
+
+                </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class=" text-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2>About Me</h2>
+            </div>
+            <div class="row align-items-center mb-5">
+                <div class="col-md-6">
+                    <img src="img1.jpg" alt="About Image 1" class="about-img">
+                </div>
+                <div class="col-md-6">
+                    <p class="p1">I'm an aspiring front-end developer, transitioning from a background in medicine to pursue my passion for crafting captivating digital experiences. With a foundation rooted in problem-solving and attention to detail, I'm dedicated to mastering the art of web development. Each project fuels my drive to innovate, learn, and contribute meaningfully to the evolving world of technology.</p>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="p1">As a former medical doctor, I graduated from the University of Sri Jayewardenepura, Faculty of Medical Sciences, Sri Lanka  with a dedication to providing exceptional healthcare. My journey led me to Colombo South Teaching Hospital, where I gained invaluable experience in patient care, diagnosis, and treatment. Though I've transitioned from clinical practice, my background as a medical professional continues to inform my approach to problem-solving, attention to detail, and commitment to excellence in every endeavor.</p>
+                </div>
+                <div class="col-md-6">
+                    <img src="img2.jpg" alt="About Image 2" class="about-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2>Skills</h2>
+                <p>- These are the technologies I've worked with -</p>
+            </div>
+            <div class="row">
+                <div class="col-12 col-sm-6 col-md-3 mb-4">
+                    <div class="card">
+                        <img src="html.png" class="card-img-top" alt="HTML">
+                        <div class="card-body">
+                            <p class="card-text">HTML</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-3 mb-4">
+                    <div class="card">
+                        <img src="css.png" class="card-img-top" alt="CSS">
+                        <div class="card-body">
+                            <p class="card-text">CSS</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-3 mb-4">
+                    <div class="card">
+                        <img src="javascript.png" class="card-img-top" alt="JavaScript">
+                        <div class="card-body">
+                            <p class="card-text">JavaScript</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-3 mb-4">
+                    <div class="card">
+                        <img src="react.png" class="card-img-top" alt="React">
+                        <div class="card-body">
+                            <p class="card-text">React</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-3 mb-4">
+                    <div class="card">
+                        <img src="github.png" class="card-img-top" alt="GitHub">
+                        <div class="card-body">
+                            <p class="card-text">GitHub</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-3 mb-4">
+                    <div class="card">
+                        <img src="bootstrap.png" class="card-img-top" alt="Node.js">
+                        <div class="card-body">
+                            <p class="card-text">Bootstrap</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-3 mb-4">
+                    <div class="card">
+                        <img src="tailwind.png" class="card-img-top" alt="Express.js">
+                        <div class="card-body">
+                            <p class="card-text">Tailwind</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-3 mb-4">
+                    <div class="card">
+                        
+                        <div class="card-body">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Section -->
+    <section id="work" class="work-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2>Work</h2>
+                <p>- Check out some of my recent projects -</p>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="imgw1.jpg" alt="Project 1">
+                        <div class="overlay">
+                            <p> BMI Calculator</p>
+                            <a href="https://github.com/achini-saumya/Project-BMI" class="btn btn-light" target="_blank">Code</a>
+                            <a href="https://www.linkedin.com/posts/achini-wanasinghe_bmi-calculator-how-to-use-simply-activity-7188827037304803328-KRlc?utm_source=share&utm_medium=member_desktop" class="btn btn-light" target="_blank"> Demo</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="imgw2.jpg" alt="Project 2">
+                        <div class="overlay">
+                            <p>Animated Responsive Homepage Website Design created with HTML and CSS</p>
+                            <a href="https://github.com/achini-saumya/Project002" class="btn btn-light" target="_blank">Code</a>
+                            <a href="https://www.linkedin.com/posts/achini-wanasinghe_animated-responsive-homepage-website-design-activity-7188471658536448000-dAhn?utm_source=share&utm_medium=member_desktop" class="btn btn-light" target="_blank"> Demo</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="imgw3.jpg" alt="Project 3">
+                        <div class="overlay">
+                            <p>Responsive Coffee Shop homepage website design created with HTML, CSS, and JavaScript</p>
+                            <a href="https://github.com/achini-saumya/coffee_shop" class="btn btn-light" target="_blank">Code</a>
+                            <a href="https://www.linkedin.com/posts/achini-wanasinghe_responsive-coffee-shop-homepage-website-activity-7188459947666362369-TNxr?utm_source=share&utm_medium=member_desktop" class="btn btn-light" target="_blank"> Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="imgw4.jpg" alt="Project 4">
+                        <div class="overlay">
+                            <p>Simple Calculator</p>
+                            <a href="https://github.com/achini-saumya/Simple-Calculator" class="btn btn-light" target="_blank">Code</a>
+                            <a href="https://www.linkedin.com/posts/achini-wanasinghe_simple-calculator-this-calculator-activity-7188445041005068288-XlQA?utm_source=share&utm_medium=member_desktop" class="btn btn-light" target="_blank"> Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="imgw5.jpg" alt="Project 5">
+                        <div class="overlay">
+                            <p>Weather App</p>
+                            <a href="https://github.com/achini-saumya/Weather-App" class="btn btn-light" target="_blank">Code</a>
+                            <a href="https://www.linkedin.com/posts/achini-wanasinghe_weather-app-the-weather-app-is-a-activity-7188150485365727232-3NU0?utm_source=share&utm_medium=member_desktop" class="btn btn-light" target="_blank"> Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="imgw6.jpg" alt="Project 6">
+                        <div class="overlay">
+                            <p>To-Do List</p>
+                            <a href="https://github.com/achini-saumya/To-Do-List.N" class="btn btn-light" target="_blank">Code</a>
+                            <a href="https://www.linkedin.com/posts/achini-wanasinghe_html-css-javascript-activity-7188028376564051969-3vvb?utm_source=share&utm_medium=member_desktop" class="btn btn-light" target="_blank"> Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="imgw7.jpg" alt="Project 7">
+                        <div class="overlay">
+                            <p>E-commerce-Web-App</p>
+                            <a href="https://github.com/achini-saumya/E-commerce-Web-App" class="btn btn-light" target="_blank">Code</a>
+                            <a href="https://www.linkedin.com/posts/achini-wanasinghe_introducing-my-latest-project-an-e-commerce-activity-7221373645732941824-PsmZ?utm_source=share&utm_medium=member_desktop" class="btn btn-light" target="_blank"> Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="imgw8.jpg" alt="Project 1">
+                        <div class="overlay">
+                            <p>a Simple Quiz App built using React. Js and CSS</p>
+                            <a href="https://github.com/achini-saumya/New-Quiz" class="btn btn-light" target="_blank">Code</a>
+                            <a href="https://www.linkedin.com/posts/achini-wanasinghe_introducing-my-latest-project-a-simple-activity-7189930397210746880-PJ6M?utm_source=share&utm_medium=member_desktop" class="btn btn-light" target="_blank"> Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="imgw9.jpg" alt="Project 1">
+                        <div class="overlay">
+                            <p>MatchMaster, Memory Challenge</p>
+                            <a href="https://github.com/achini-saumya/MatchMaster_Memory-Challenge" class="btn btn-light" target="_blank">Code</a>
+                            <a href="https://www.linkedin.com/posts/achini-wanasinghe_introducing-my-latest-project-a-game-activity-7221392398864519168-T2Jt?utm_source=share&utm_medium=member_desktop" class="btn btn-light" target="_blank"> Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="imgw10.jpg" alt="Project 1">
+                        <div class="overlay">
+                            <p>Chess - Game app</p>
+                            <a href="https://github.com/achini-saumya/Chess_" class="btn btn-light" target="_blank">Code</a>
+                            <a href="https://www.linkedin.com/posts/achini-wanasinghe_introducing-my-latest-project-a-chess-activity-7221395540226310144-sjhm?utm_source=share&utm_medium=member_desktop" class="btn btn-light" target="_blank"> Demo</a>
+                        </div>
+                    </div>
+                   
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="imgw13.jpg" alt="Project 1">
+                        <div class="overlay">
+                            <p>portfolio website built using React.js and Tailwind CSS</p>
+                            <a href="https://github.com/achini-saumya/portfolio" class="btn btn-light" target="_blank">Code</a>
+                            <a href="https://www.linkedin.com/posts/achini-wanasinghe_introducing-my-latest-project-a-portfolio-activity-7190977725107445760-yBKO?utm_source=share&utm_medium=member_desktop" class="btn btn-light" target="_blank"> Demo</a>
+                        </div>
+                    </div>
+                   
+                </div>
+
+                
+                <!-- Add more work cards here -->
+            </div>
+        </div>
+    </section>
+
+    
+        
+
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-form">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2>Get in touch</h2>
+                <p>- Feel free to reach out for any inquiries or collaborations -</p>
+            </div>
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea class="form-control" id="message" rows="10" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-3">Send </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+            
+   
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
