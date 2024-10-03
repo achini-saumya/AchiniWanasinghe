@@ -226,37 +226,57 @@
 <body>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-md navbar-custom fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="Achini.png" alt="Logo" width="200">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon">
-                    <i class="fas fa-bars text-white"></i>
-                </span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#skills">Skills</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#work">Work</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
-                </ul>
-            </div>
+    <!-- Navbar -->
+<nav class="navbar navbar-expand-md navbar-custom fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="Achini.png" alt="Logo" width="200">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon">
+                <i class="fas fa-bars text-white"></i>
+            </span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#skills">Skills</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#work">Work</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
+
+<!-- JavaScript to collapse navbar on click -->
+<script>
+    // Close the navbar when clicking on a link (for mobile devices)
+    document.addEventListener('DOMContentLoaded', function() {
+        var navbarCollapse = document.querySelector('.navbar-collapse');
+        var navLinks = document.querySelectorAll('.nav-link');
+
+        navLinks.forEach(function(link) {
+            link.addEventListener('click', function() {
+                var bsCollapse = new bootstrap.Collapse(navbarCollapse, {
+                    toggle: false
+                });
+                bsCollapse.hide(); // Close the navbar
+            });
+        });
+    });
+</script>
+
 
     <!-- Home Section -->
     <section id="home">
@@ -495,9 +515,20 @@
                     <div class="card">
                         <img src="imgw13.JPG" alt="Project 1">
                         <div class="overlay">
-                            <p>portfolio website built using React.js and Tailwind CSS</p>
+                            <p>Portfolio website built using React.js and Tailwind CSS</p>
                             <a href="https://github.com/achini-saumya/portfolio" class="btn btn-light" target="_blank">Code</a>
                             <a href="https://www.linkedin.com/posts/achini-wanasinghe_introducing-my-latest-project-a-portfolio-activity-7190977725107445760-yBKO?utm_source=share&utm_medium=member_desktop" class="btn btn-light" target="_blank"> Demo</a>
+                        </div>
+                    </div>
+                   
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="imgw20.JPG" alt="Project 1">
+                        <div class="overlay">
+                            <p>Travel web app built with HTML, CSS, and JavaScript.</p>
+                            <a href="https://github.com/achini-saumya/Project20" class="btn btn-light" target="_blank">Code</a>
+                            <a href="https://www.linkedin.com/posts/achini-wanasinghe_introducing-my-latest-project-a-travel-activity-7231185676631711744-Mrso?utm_source=share&utm_medium=member_desktop" class="btn btn-light" target="_blank"> Demo</a>
                         </div>
                     </div>
                    
